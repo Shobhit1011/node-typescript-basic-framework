@@ -1,0 +1,6 @@
+{
+    "db": {
+        "connectionURI": "mongodb://localhost:27017",
+        "name": "test"
+    }
+}
