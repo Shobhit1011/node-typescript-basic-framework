@@ -10,8 +10,9 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "removeComments": false
   },
-  "include": ["src/**/*", "src/**/*.json"],
+  "include": ["src/**/*", "src/docs/**/*", "src/**/*.json"],
   "exclude": ["node_modules", "coverage", "tests/**/*.spec.ts"]
 }
