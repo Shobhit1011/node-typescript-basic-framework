@@ -26,6 +26,38 @@ const router: core.Router = Router();
  * @apiSuccess {String} data.name User name.
  * @apiSuccess {Date} data.createdAt User created date.
  * @apiSuccess {Date} data.updatedAt User updated date.
+ * 
+ * @apiSuccessExample {json} Success-Response
+ *      HTTP/1.1 200 OK
+ *      {
+ *          "status": 200,
+ *           "customCode": "SUCCESS",
+ *           "message": "successfully done",
+ *           "data": {
+ *               "userId": "0e1cda7b-943a-43f7-9a63-d6eb74ced2e0",
+ *               "email": "shobhitcoolsinghal@gmail.com",
+ *               "name": "Shobhit",
+ *               "phoneNo": "9999999990",
+ *               "createdAt": "2023-07-15T04:09:26.793Z",
+ *               "updatedAt": "2023-07-15T04:09:26.793Z"
+ *           }
+ *       }
+ * @apiError BAD_REQUEST  occurs when validation fails.
+ * @apiErrorExample {json} BAD_REQUEST
+ *      HTTP/1.1 400 Bad Request
+ *      {
+ *           "status": 400,
+ *           "customCode": "BAD_REQUEST",
+ *           "message": {{message}}
+ *       }
+ * @apiError CONFLICT_ERROR occurs when user already exist with given email, phoneNo or name.
+ * @apiErrorExample {json} CONFLICT_ERROR
+ *      HTTP/1.1 40 Conflict Error
+ *      {
+ *          "status": 409,
+ *          "customCode": "CONFLICT_ERROR",
+ *          "message": "user already exists with given email, phoneNo or name."
+ *      }
  */
 router.post("/", UserValidators.createUserValidator ,async (req: Request, res: Response, next: NextFunction) => {
     try {

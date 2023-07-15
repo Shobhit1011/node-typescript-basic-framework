@@ -4,7 +4,7 @@
   "description": "basic typescript framework to create new nodejs apps",
   "main": "src/index.js",
   "scripts": {
-    "start:dev": "npx nodemon",
+    "start:dev": "apidoc -i src -o src/docs && npx nodemon",
     "build": "rimraf ./build && tsc",
     "start": "npm run build && apidoc -i build/ -o build/docs && node build/index.js",
     "lint": "eslint . --ext .ts",

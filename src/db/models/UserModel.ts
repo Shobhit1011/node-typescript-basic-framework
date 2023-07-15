@@ -1,6 +1,7 @@
 import { User } from "../entities";
 import { UserSchema } from "../schemas";
 import { BaseModel } from "./baseModel";
+import { isEmpty } from "lodash";
 
 export class UserModel extends BaseModel<User> {
     constructor() {
@@ -8,10 +9,12 @@ export class UserModel extends BaseModel<User> {
     }
 
     async findUserById(userId: string): Promise<User | null> {
-        return this.findOne({ userId });
+        return await this.findOne({ userId });
     }
 
-    async isUserAlreadyExists(email: string, name: string, phoneNo: string): Promise<User | null> {
-        return this.findOne({ $or: [ { email }, { name }, { phoneNo } ]});
+    async isUserAlreadyExists(email: string, phoneNo: string, name: string): Promise<boolean | null> {
+        const user = await this.findOne({ $or: [ { email }, { name }, { phoneNo } ]});
+        if(isEmpty(user)) return false;
+        return true;
     }
 }
