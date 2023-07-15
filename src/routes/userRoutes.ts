@@ -50,7 +50,7 @@ const router: core.Router = Router();
  *           "customCode": "BAD_REQUEST",
  *           "message": {{message}}
  *       }
- * @apiError CONFLICT_ERROR occurs when user already exist with given email, phoneNo or name.
+ * @apiError CONFLICT_ERROR occurs when user already exists with given email, phoneNo or name.
  * @apiErrorExample {json} CONFLICT_ERROR
  *      HTTP/1.1 40 Conflict Error
  *      {
